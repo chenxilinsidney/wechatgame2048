@@ -9,11 +9,20 @@
     </view>
 </template>
 <template name="grid">
-    <div class="grid-background">
+    <section class="grid-background">
     <div wx:for="{{test_value}}" wx:key="*this" wx:for-item="value">
         <template is="grid-depth1" data="{{value}}"></template>
     </div>
-    </div>
+    </section>
 </template>
+<template name="button-restart">
+    <button class="button-restart" hover-class="button-restart-hover">{{restart_text}}</button>
+</template>
+<section class="grid-body">
 <template is="grid" data="{{test_value}}"></template>
-
+</section>
+<template is="button-restart" data="{{restart_text}}"></template>
+<picker-view>
+<picker-view-column></picker-view-column>
+<picker-view-column></picker-view-column>
+</picker-view>

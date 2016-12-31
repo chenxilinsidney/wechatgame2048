@@ -1,4 +1,12 @@
 /* pages/game/programmer.wxss */
+.grid-body {
+    /*bug*/
+    height: 600rpx;
+    background-color: #FFDD99;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
 .grid-background {
     height: 450rpx;
     width: 450rpx;
@@ -41,4 +49,18 @@
 .grid-depth1-maxfont {
     color: #FFFF33;
     font: bold 30rpx arial;
+}
+.button-restart {
+    height: 100rpx;
+    width: 200rpx;
+    font: bold 40rpx arial;
+    border: 10rpx solid #EECC88;
+    border-radius: 20rpx;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    background-color: #FFDD99;
+}
+.button-restart-hover {
+    background-color: #CCBB77;
 }
