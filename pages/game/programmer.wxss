@@ -1,1 +1,42 @@
 /* pages/game/programmer.wxss */
+.grid {
+    margin: 10rpx;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;   
+}
+.grid-background {
+    height: 500rpx;
+    width: 500rpx;
+    background-color: #FFDD99;
+    border: 10rpx solid lightgoldenrodyellow;
+    border-radius: 15rpx;
+    margin: 10rpx;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center; 
+}
+.grid-depth1 {
+    text-align: center;
+    height: 125rpx;
+    width: 125rpx;
+    background-color: #FFBB66;
+    border: 10rpx solid orange;
+    border-radius: 20rpx;
+    margin: 10rpx;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+.grid-depth1-minfont {
+    color: #000000; 
+    font: bold 100rpx arial;
+}
+.grid-depth1-midfont {
+    color: #FF3333;
+    font: bold 75rpx arial;
+}
+.grid-depth1-maxfont {
+    color: #FFFF33;
+    font: bold 55rpx arial;
+}

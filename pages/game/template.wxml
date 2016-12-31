@@ -1,0 +1,5 @@
+<template name="grid-depth1">
+    <view wx:if="{{value < 100}}"><view class="grid-depth1-minfont">{{value}}</view></view>
+    <view wx:elif="{{value < 1000}}"><view class="grid-depth1-midfont">{{value}}</view></view>
+    <view wx:else="{{value < 10000}}"><view class="grid-depth1-maxfont">{{value}}</view></view>
+</template>
