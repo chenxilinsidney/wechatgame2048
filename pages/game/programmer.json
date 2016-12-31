@@ -4,6 +4,6 @@
     "navigationBarTitleText": "2048 game",
     "backgroundColor": "#FFDD99",
     "backgroundTextStyle": "dark",
-    "enablePullDownRefresh": true,
-    "disableScroll": false
+    "enablePullDownRefresh": false,
+    "disableScroll": true
 }

@@ -1,5 +1,6 @@
 <!--pages/game/programmer.wxml-->
 <!--<import src="template.wxml">-->
+<!--template for singal grid-->
 <template name="grid-depth1">
     <view class="grid-depth1">
         <view wx:if="{{value == 0}}" class="grid-depth1-nonfont"></view>
@@ -8,6 +9,7 @@
         <view wx:else="{{value < 10000}}" class="grid-depth1-maxfont">{{value}}</view>
     </view>
 </template>
+<!--template for whole grid-->
 <template name="grid">
     <section class="grid-background">
     <div wx:for="{{test_value}}" wx:key="*this" wx:for-item="value">
@@ -15,14 +17,26 @@
     </div>
     </section>
 </template>
+<!--template for restart button-->
 <template name="button-restart">
     <button class="button-restart" hover-class="button-restart-hover">{{restart_text}}</button>
 </template>
+<!--template for hard level choice button-->
+<template name="level-choice">
+    <section class="picker-group">
+        <text class="picker-prompt">{{level_prompt}}</text>
+        <picker-view class="picker-content" value="{{level_default_idx}}">
+            <picker-view-column>
+                    <view wx:for="{{hard_level}}" wx:key="*this" wx:for-item="level">{{level + "级"}}</view>
+            </picker-view-column>
+        </picker-view>
+    </section>
+</template>
+<!--view-->
 <section class="grid-body">
 <template is="grid" data="{{test_value}}"></template>
 </section>
+<section>
 <template is="button-restart" data="{{restart_text}}"></template>
-<picker-view>
-<picker-view-column></picker-view-column>
-<picker-view-column></picker-view-column>
-</picker-view>
+<template is="level-choice" data="{{hard_level, level_default_idx, level_prompt}}"></template>
+</section>

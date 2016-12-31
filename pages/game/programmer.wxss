@@ -54,13 +54,39 @@
     height: 100rpx;
     width: 200rpx;
     font: bold 40rpx arial;
+    background-color: #FFDD99;
     border: 10rpx solid #EECC88;
     border-radius: 20rpx;
     display: -webkit-box;
     -webkit-box-pack: center;
     -webkit-box-align: center;
-    background-color: #FFDD99;
 }
 .button-restart-hover {
     background-color: #CCBB77;
+}
+.picker-group {
+    height: 100rpx;
+    width: 200rpx;
+    margin: 5rpx;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:center;
+    align-items:center;
+    justify-content:center;
+}
+.picker-prompt {
+    text-align: center;
+    height: 100rpx;
+    width: 100rpx;
+    display: -webkit-box;
+    font: bold 40rpx arial;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    flex-direction: column;
+}
+.picker-content {
+    height: 100rpx;
+    width: 100rpx;
+    line-height: 75rpx;
+    flex-direction: column;
 }
