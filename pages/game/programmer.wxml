@@ -2,16 +2,18 @@
 <!--<import src="template.wxml">-->
 <template name="grid-depth1">
     <view class="grid-depth1">
-        <view wx:if="{{value < 100}}"><view class="grid-depth1-minfont">{{value}}</view></view>
-        <view wx:elif="{{value < 1000}}"><view class="grid-depth1-midfont">{{value}}</view></view>
-        <view wx:else="{{value < 10000}}"><view class="grid-depth1-maxfont">{{value}}</view></view>
+        <view wx:if="{{value == 0}}" class="grid-depth1-nonfont"></view>
+        <view wx:elif="{{value < 100}}" class="grid-depth1-minfont">{{value}}</view>
+        <view wx:elif="{{value < 1000}}" class="grid-depth1-midfont">{{value}}</view>
+        <view wx:else="{{value < 10000}}" class="grid-depth1-maxfont">{{value}}</view>
     </view>
 </template>
 <template name="grid">
-<view class="grid-depth1" wx:for="{{test_value}}" wx:key="*this" wx:for-index="idx" wx:for-item="value"></view>
+    <div class="grid-background">
+    <div wx:for="{{test_value}}" wx:key="*this" wx:for-item="value">
+        <template is="grid-depth1" data="{{value}}"></template>
+    </div>
+    </div>
 </template>
-<view class="grid"></view>
-<view class="grid-background"></view>
-<view wx:for="{{test_value}}" wx:key="*this" wx:for-item="value">
-    <template is="grid-depth1" data="{{value}}"></template>
-</view>
+<template is="grid" data="{{test_value}}"></template>
+

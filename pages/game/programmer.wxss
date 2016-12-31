@@ -1,42 +1,44 @@
 /* pages/game/programmer.wxss */
-.grid {
-    margin: 10rpx;
-    display: -webkit-box;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;   
-}
 .grid-background {
-    height: 500rpx;
-    width: 500rpx;
+    height: 450rpx;
+    width: 450rpx;
     background-color: #FFDD99;
     border: 10rpx solid lightgoldenrodyellow;
-    border-radius: 15rpx;
-    margin: 10rpx;
-    display: -webkit-box;
-    -webkit-box-pack: center;
-    -webkit-box-align: center; 
+    border-radius: 25rpx;
+    margin: 5rpx;
+    padding: 5rpx;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:center;
+    align-items:center;
+    justify-content:center;
 }
 .grid-depth1 {
     text-align: center;
-    height: 125rpx;
-    width: 125rpx;
+    height: 80rpx;
+    width: 80rpx;
     background-color: #FFBB66;
     border: 10rpx solid orange;
     border-radius: 20rpx;
-    margin: 10rpx;
+    margin: 5rpx;
     display: -webkit-box;
     -webkit-box-pack: center;
     -webkit-box-align: center;
+    flex-direction: column;
+}
+.grid-depth1-nonfont {
+    /*bug*/
+    background-color: #FFFFFF;
 }
 .grid-depth1-minfont {
     color: #000000; 
-    font: bold 100rpx arial;
+    font: bold 60rpx arial;
 }
 .grid-depth1-midfont {
     color: #FF3333;
-    font: bold 75rpx arial;
+    font: bold 45rpx arial;
 }
 .grid-depth1-maxfont {
     color: #FFFF33;
-    font: bold 55rpx arial;
+    font: bold 30rpx arial;
 }
