@@ -1,3 +1,3 @@
-# wechatgame2048
-# wechat cute progamme
-# just for fun
+# wechat game 2048
+### wechat cute progamm.
+### just for fun.
