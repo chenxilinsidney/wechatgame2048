@@ -38,9 +38,15 @@ function setGameArray(array) {
     console.log("setGameArray gameArray value: ", gameArray);
     return true;
 }
-// game reset game array
-function resetGameArray() {
+// game reset game
+function resetGame() {
+    // reset array
     gameArray.fill(0);
+    // reset value
+    gameStatus = "start";
+    gameScore = 0;
+    // generate a random game value
+    generateGameValue();
     console.log("resetGameArray gameArray value: ", gameArray);
     return true;
 }
@@ -54,6 +60,36 @@ function getGameScore() {
     gameScore = Math.max(...gameArray);
     console.log("gameScore: ", gameScore);
     return gameScore;
+}
+// get game status
+function getGameStatus() {
+    return gameStatus;
+}
+// play game function
+function playGame(direction) {
+    // merge array
+    var statusFresh = mergeGameArray(direction);
+    freshGameStatus();
+    if (statusFresh || gameStatus != "end") {
+        // generate new value
+        generateGameValue();
+    } else {
+        // try other direction to see if there is another way
+        var existLegalDirection = GAME_MOVE_DIRECTION.some(function(value, index, array) {
+            if (value != direction) {
+                var packgameArray = gameArray.slice();
+                var newStatusFresh = mergeGameArray(direction);
+                gameArray = packgameArray.slice();
+                if (newStatusFresh) {
+                    return true;
+                }
+            }
+            return false;
+        });
+        if (existLegalDirection) {
+            gameStatus = "playing";
+        }
+    }
 }
 // generate game random value in game array
 function generateGameValue() {
@@ -89,17 +125,17 @@ function generateGameValue() {
     console.log("gameArray value: ", gameArray);
     return true;
 }
-// game status detect
-function checkGameStaus() {
-    var fullArray = gameArray.some(function (element, index, array) {
+// game status fresh
+function freshGameStatus() {
+    var existZeroArray = gameArray.some(function (element, index, array) {
         return element == 0;
     });
-    if (fullArray == true) {
-        gameStatus = GAME_STATUS[1];
-    } else {
+    if (existZeroArray == true) {
         gameStatus = GAME_STATUS[0];
+    } else {
+        gameStatus = GAME_STATUS[1];
     }
-    return gameStatus;
+    return;
 }
 // game array ilegal detect
 function checkArrayLegal(array) {
@@ -199,8 +235,12 @@ function mergeGameArray(direction) {
             console.log("new array list", array);
         }
     }
-    gameArray = newArray.slice();
-    return true;
+    if (newArray.toString() == gameArray.toString()) {
+        return false;
+    } else {
+        gameArray = newArray.slice();
+        return true;
+    }
 }
 // diplay for debug
 function displaygameArray() {
@@ -256,11 +296,24 @@ function testModule() {
     displaygameArray();
     mergeGameArray("moveButtom");
     displaygameArray();
+
+    // client usage demo
+    // call when start to play
+    setGameArray([0,0,2,2,4,4,8,8,16,32,32,0,16,0,0,0]); //server
+    resetGame(); // restart
+    // call while playing
+    playGame("moveButtom");
+    // get single round play result
+    var array = getGameArray();
+    var status = getGameStatus();
+    var score = getGameScore();
 }
 module.exports = {
     printAuthor: printAuthor,
-    getGameArray: getGameArray,
+    resetGame: resetGame,
     setGameArray: setGameArray,
-    checkGameStaus: checkGameStaus,
+    getGameArray: getGameArray,
+    getGameStatus: getGameStatus,
+    getGameScore: getGameScore,
     testModule: testModule
 }
