@@ -32,6 +32,17 @@
         </picker-view>
     </section>
 </template>
+<!--template for mode choice button-->
+<template name="mode-choice">
+    <section class="picker-group">
+        <text class="picker-prompt">{{modePrompt}}</text>
+        <picker-view class="picker-content" value="{{modeDefault}}">
+            <picker-view-column>
+                    <view wx:for="{{gameMode}}" wx:for-item="mode">{{mode}}</view>
+            </picker-view-column>
+        </picker-view>
+    </section>
+</template>
 <!--view-->
 <view class="background">
 <view class="button-group">
@@ -43,6 +54,7 @@
 <view class="choicebar">
     <view class="choicebarelement"><template is="button-restart" data="{{restartPrompt}}"></template></view>
     <view class="choicebarelement"><template is="level-choice" data="{{gameLevel, levelDefault, levelPrompt}}"></template></view>
+    <view class="choicebarelement"><template is="mode-choice" data="{{gameMode, modeDefault, modePrompt}}"></template></view>
 </view>
 <view class="grid-body">
 <template is="grid" data="{{gridValue}}"></template>

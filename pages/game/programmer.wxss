@@ -53,7 +53,7 @@
 }
 .button-restart {
     height: 100rpx;
-    width: 300rpx;
+    width: 250rpx;
     font: bold 40rpx arial;
     background-color: #FFDD99;
     border: 10rpx solid #EECC88;
