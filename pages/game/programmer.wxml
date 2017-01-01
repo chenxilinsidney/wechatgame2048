@@ -56,6 +56,9 @@
     <view class="choicebarelement"><template is="level-choice" data="{{gameLevel, levelDefault, levelPrompt}}"></template></view>
     <view class="choicebarelement"><template is="mode-choice" data="{{gameMode, modeDefault, modePrompt}}"></template></view>
 </view>
+<view class="choicebar">
+    <view class="choicebarelement">{{gameTime}}</view>
+</view>
 <view class="grid-body">
 <template is="grid" data="{{gridValue}}"></template>
 </view>

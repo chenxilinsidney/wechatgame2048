@@ -1,5 +1,6 @@
 // pages/game/programmer.js
 var game2048 = require('../../utils/game2048.js');
+var util = require('../../utils/util.js');
 Page({
   data:{
     // 游戏数组值
@@ -18,6 +19,8 @@ Page({
     modeMode: [0],
     // 游戏模式提示
     modePrompt:"模式",
+    // 游戏运行时间
+    gameTime:"00:00:00",
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -34,6 +37,9 @@ Page({
     // 页面显示
     game2048.printAuthor();
     // test
+    this.setData({
+      gameTime:util.formatDayTime(new Date())
+    });
   },
   onHide:function(){
     // 页面隐藏

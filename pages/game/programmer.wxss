@@ -52,13 +52,10 @@
     font: bold 30rpx arial;
 }
 .button-restart {
-    height: 100rpx;
-    width: 250rpx;
-    font: bold 40rpx arial;
+    font: bold 30rpx arial;
     background-color: #FFDD99;
     border: 10rpx solid #EECC88;
-    border-radius: 20rpx;
-    line-height: 100rpx;
+    border-radius: 10rpx;
 }
 .button-restart-hover {
     background-color: #CCBB77;
@@ -87,13 +84,14 @@
     background-color: #CCBB77;
 }
 .choicebar {
-    height: 100rpx;
+    height: 80rpx;
     width: 100%;
     border:1px solid;
     text-align:center;
     display: table;
-    table-layout: fixed;
+    table-layout: auto;
     position: relative;
+    margin: 10rpx;
 }
 .choicebarelement {
     display: table-cell;
@@ -103,8 +101,8 @@
     margin: 0,auto;
 }
 .picker-group {
-    height: 100rpx;
-    width: 200rpx;
+    height: 100%;
+    width: 100%;
     margin: 5rpx;
     display:flex;
     flex-wrap:wrap;
@@ -117,7 +115,7 @@
     height: 100rpx;
     width: 100rpx;
     display: -webkit-box;
-    font: bold 40rpx arial;
+    font: bold 30rpx arial;
     -webkit-box-pack: center;
     -webkit-box-align: center;
     flex-direction: column;
