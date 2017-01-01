@@ -19,7 +19,7 @@
 </template>
 <!--template for restart button-->
 <template name="button-restart">
-    <button class="button-restart" hover-class="button-restart-hover"  catchtap="handleRestart">{{restart_text}}</button>
+    <button class="button-restart" hover-class="button-restart-hover" catchtap="handleRestart">{{restart_text}}</button>
 </template>
 <!--template for hard level choice button-->
 <template name="level-choice">
@@ -34,22 +34,17 @@
 </template>
 <!--view-->
 <view class="background">
-<!--
-<view class="grid-body">
-<template is="button-restart" data="{{restart_text}}"></template>
--->
 <view class="button-group">
 <button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveTop">{{"Up"}}</button>
 <button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveButtom">{{"Down"}}</button>
 <button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveLeft">{{"Left"}}</button>
 <button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveRight">{{"Right"}}</button>
 </view>
-<view>
-<template is="button-restart" data="{{restart_text}}"></template>
+<view class="choicebar">
+    <view class="choicebarelement"><template is="button-restart" data="{{restart_text}}"></template></view>
+    <view class="choicebarelement"><template is="level-choice" data="{{hard_level, level_default_idx, level_prompt}}"></template></view>
 </view>
-
-<!--
-<template is="level-choice" data="{{hard_level, level_default_idx, level_prompt}}"></template>
+<view class="grid-body">
 <template is="grid" data="{{test_value}}"></template>
-        -->
+</view>
 </view>

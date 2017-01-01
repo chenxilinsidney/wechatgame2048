@@ -3,13 +3,10 @@
     height: 100%;
     width: 100%;
     background-color: #FFDD99;
+    border:1px solid;
 }
 .grid-body {
     /*bug*/
-    background-color: #FFDD99;
-    display: -webkit-box;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
 }
 .grid-background {
     height: 450rpx;
@@ -89,6 +86,21 @@
 }
 .button-single-hover {
     background-color: #CCBB77;
+}
+.choicebar {
+    height: 100rpx;
+    width: 100%;
+    border:1px solid;
+    text-align:center;
+    display: table;
+    table-layout: fixed;
+    position: relative;
+}
+.choicebarelement {
+    display: table-cell;
+    empty-cells: hide;
+    text-align: center;
+    line-height: 100rpx;
 }
 .picker-group {
     height: 100rpx;
