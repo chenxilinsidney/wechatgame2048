@@ -158,29 +158,32 @@ function merge1DArray(array) {
     var newArray = [];
     if (!Array.isArray(array))
         return newArray;
-    var length = array.length;
-    if (length == 0)
-        return newArray;
+    var filterZeroArray = array.filter(function(value, index, array) {
+        if (value != 0)
+            return true;
+        else
+            return false;
+    });
+    var length = filterZeroArray.length;
     // push element
     var arrayIndex = 0;
     while (arrayIndex < length - 1) {
-        if (array[arrayIndex] == 0) {
-            arrayIndex++;
-        } else if (array[arrayIndex] == array[arrayIndex + 1]) {
-            newArray.push(2 * array[arrayIndex]);
+        if (filterZeroArray[arrayIndex] ==
+            filterZeroArray[arrayIndex + 1]) {
+            newArray.push(2 * filterZeroArray[arrayIndex]);
             arrayIndex += 2;
         } else {
-            newArray.push(array[arrayIndex]);
+            newArray.push(filterZeroArray[arrayIndex]);
             arrayIndex++;
         }
     }
     // last element
     while (arrayIndex < length) {
-        newArray.push(array[arrayIndex]);
+        newArray.push(filterZeroArray[arrayIndex]);
         arrayIndex++;
     }
     // filled with zero
-    var zeroCount = length - newArray.length;
+    var zeroCount = array.length - newArray.length;
     while (zeroCount--) {
         newArray.push(0);
     }
