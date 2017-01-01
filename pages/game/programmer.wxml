@@ -11,15 +11,15 @@
 </template>
 <!--template for whole grid-->
 <template name="grid">
-    <section class="grid-background">
+    <view class="grid-background"  bindtouchmove="handlemove">
     <div wx:for="{{test_value}}" wx:key="*this" wx:for-item="value">
         <template is="grid-depth1" data="{{value}}"></template>
     </div>
-    </section>
+    </view>
 </template>
 <!--template for restart button-->
 <template name="button-restart">
-    <button class="button-restart" hover-class="button-restart-hover">{{restart_text}}</button>
+    <button class="button-restart" hover-class="button-restart-hover"  catchtap="handlerestart">{{restart_text}}</button>
 </template>
 <!--template for hard level choice button-->
 <template name="level-choice">
@@ -38,5 +38,7 @@
 </section>
 <section>
 <template is="button-restart" data="{{restart_text}}"></template>
+</section>
+<section>
 <template is="level-choice" data="{{hard_level, level_default_idx, level_prompt}}"></template>
 </section>
