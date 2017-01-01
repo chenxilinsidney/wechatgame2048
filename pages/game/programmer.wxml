@@ -33,16 +33,23 @@
     </section>
 </template>
 <!--view-->
-<section class="grid-body">
-<template is="grid" data="{{test_value}}"></template>
-</section>
-<section>
+<view class="background">
+<!--
+<view class="grid-body">
 <template is="button-restart" data="{{restart_text}}"></template>
-<button class="button-restart" hover-class="button-restart-hover"  catchtap="handleMoveTop">{{"Up"}}</button>
-<button class="button-restart" hover-class="button-restart-hover"  catchtap="handleMoveButtom">{{"Down"}}</button>
-<button class="button-restart" hover-class="button-restart-hover"  catchtap="handleMoveLeft">{{"Left"}}</button>
-<button class="button-restart" hover-class="button-restart-hover"  catchtap="handleMoveRight">{{"Right"}}</button>
-</section>
-<section>
+-->
+<view class="button-group">
+<button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveTop">{{"Up"}}</button>
+<button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveButtom">{{"Down"}}</button>
+<button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveLeft">{{"Left"}}</button>
+<button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveRight">{{"Right"}}</button>
+</view>
+<view>
+<template is="button-restart" data="{{restart_text}}"></template>
+</view>
+
+<!--
 <template is="level-choice" data="{{hard_level, level_default_idx, level_prompt}}"></template>
-</section>
+<template is="grid" data="{{test_value}}"></template>
+        -->
+</view>

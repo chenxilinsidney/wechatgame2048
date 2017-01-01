@@ -1,7 +1,11 @@
 /* pages/game/programmer.wxss */
+.background {
+    height: 100%;
+    width: 100%;
+    background-color: #FFDD99;
+}
 .grid-body {
     /*bug*/
-    height: 600rpx;
     background-color: #FFDD99;
     display: -webkit-box;
     -webkit-box-pack: center;
@@ -62,6 +66,28 @@
     -webkit-box-align: center;
 }
 .button-restart-hover {
+    background-color: #CCBB77;
+}
+.button-group {
+    height: 100rpx;
+    width: 600rpx;
+    border:1px solid;
+    text-align:center;
+    display: table;
+    table-layout: fixed;
+    position: relative;
+}
+.button-single {
+    font: bold 30rpx arial;
+    background-color: #FFDD99;
+    border: 10rpx solid #EECC88;
+    border-radius: 20rpx;
+    display: table-cell;
+    empty-cells: hide;
+    text-align: center;
+    line-height: 100rpx;
+}
+.button-single-hover {
     background-color: #CCBB77;
 }
 .picker-group {
