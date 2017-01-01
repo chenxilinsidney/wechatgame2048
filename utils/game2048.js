@@ -70,7 +70,7 @@ function playGame(direction) {
     // merge array
     var statusFresh = mergeGameArray(direction);
     freshGameStatus();
-    if (statusFresh || gameStatus != "end") {
+    if (statusFresh || getGameStatus() != "end") {
         // generate new value
         generateGameValue();
     } else {
@@ -78,7 +78,7 @@ function playGame(direction) {
         var existLegalDirection = GAME_MOVE_DIRECTION.some(function(value, index, array) {
             if (value != direction) {
                 var packgameArray = gameArray.slice();
-                var newStatusFresh = mergeGameArray(direction);
+                var newStatusFresh = mergeGameArray(value);
                 gameArray = packgameArray.slice();
                 if (newStatusFresh) {
                     return true;
@@ -309,11 +309,13 @@ function testModule() {
     var score = getGameScore();
 }
 module.exports = {
+    testModule: testModule,
     printAuthor: printAuthor,
+    displaygameArray: displaygameArray,
     resetGame: resetGame,
     setGameArray: setGameArray,
+    playGame: playGame,
     getGameArray: getGameArray,
     getGameStatus: getGameStatus,
-    getGameScore: getGameScore,
-    testModule: testModule
+    getGameScore: getGameScore
 }
