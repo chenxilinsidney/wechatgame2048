@@ -70,10 +70,10 @@ function playGame(direction) {
     // merge array
     var statusFresh = mergeGameArray(direction);
     freshGameStatus();
-    if (statusFresh || getGameStatus() != "end") {
-        // generate new value
+    if (statusFresh) {
         generateGameValue();
-    } else {
+    }
+    if (!statusFresh && getGameStatus() == "end") {
         // try other direction to see if there is another way
         var existLegalDirection = GAME_MOVE_DIRECTION.some(function(value, index, array) {
             if (value != direction) {
