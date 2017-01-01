@@ -59,6 +59,7 @@
 <view class="choicebar">
     <view class="choicebarelement">{{gameTime}}</view>
 </view>
+<view class="progress"><progress percent="60" stroke-width="12" color="#FF0000"/></view>
 <view class="grid-body">
 <template is="grid" data="{{gridValue}}"></template>
 </view>

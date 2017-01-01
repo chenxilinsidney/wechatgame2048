@@ -7,6 +7,9 @@
 }
 .grid-body {
     /*bug*/
+    text-align: center;
+    display: relative;
+    border:1px solid;
 }
 .grid-background {
     height: 450rpx;
@@ -14,13 +17,14 @@
     background-color: #FFDD99;
     border: 10rpx solid lightgoldenrodyellow;
     border-radius: 25rpx;
-    margin: 5rpx;
+    margin: 5rpx, auto;
     padding: 5rpx;
     display:flex;
     flex-wrap:wrap;
     align-content:center;
     align-items:center;
     justify-content:center;
+    text-align: center;
 }
 .grid-depth1 {
     text-align: center;
@@ -125,4 +129,7 @@
     width: 100rpx;
     line-height: 75rpx;
     flex-direction: column;
+}
+.progress {
+    height: 100%;
 }
