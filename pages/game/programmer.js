@@ -18,6 +18,8 @@ Page({
     // 页面显示
     console.log("on show");
     game2048.printAuthor();
+    // test
+    game2048.testModule();
   },
   onHide:function(){
     // 页面隐藏
