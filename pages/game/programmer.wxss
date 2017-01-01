@@ -53,14 +53,12 @@
 }
 .button-restart {
     height: 100rpx;
-    width: 200rpx;
+    width: 300rpx;
     font: bold 40rpx arial;
     background-color: #FFDD99;
     border: 10rpx solid #EECC88;
     border-radius: 20rpx;
-    display: -webkit-box;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
+    line-height: 100rpx;
 }
 .button-restart-hover {
     background-color: #CCBB77;
@@ -83,6 +81,7 @@
     empty-cells: hide;
     text-align: center;
     line-height: 100rpx;
+    margin: 0,auto;
 }
 .button-single-hover {
     background-color: #CCBB77;
@@ -101,6 +100,7 @@
     empty-cells: hide;
     text-align: center;
     line-height: 100rpx;
+    margin: 0,auto;
 }
 .picker-group {
     height: 100rpx;

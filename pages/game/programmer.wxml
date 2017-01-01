@@ -12,22 +12,22 @@
 <!--template for whole grid-->
 <template name="grid">
     <view class="grid-background"  catchtap="handleMove">
-    <div wx:for="{{test_value}}" wx:for-item="value">
+    <div wx:for="{{gridValue}}" wx:for-item="value">
         <template is="grid-depth1" data="{{value}}"></template>
     </div>
     </view>
 </template>
 <!--template for restart button-->
 <template name="button-restart">
-    <button class="button-restart" hover-class="button-restart-hover" catchtap="handleRestart">{{restart_text}}</button>
+    <button class="button-restart" hover-class="button-restart-hover" catchtap="handleRestart">{{restartPrompt}}</button>
 </template>
 <!--template for hard level choice button-->
 <template name="level-choice">
     <section class="picker-group">
-        <text class="picker-prompt">{{level_prompt}}</text>
-        <picker-view class="picker-content" value="{{level_default_idx}}">
+        <text class="picker-prompt">{{levelPrompt}}</text>
+        <picker-view class="picker-content" value="{{levelDefault}}">
             <picker-view-column>
-                    <view wx:for="{{hard_level}}" wx:for-item="level">{{level + "级"}}</view>
+                    <view wx:for="{{gameLevel}}" wx:for-item="level">{{level + "级"}}</view>
             </picker-view-column>
         </picker-view>
     </section>
@@ -41,10 +41,10 @@
 <button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveRight">{{"Right"}}</button>
 </view>
 <view class="choicebar">
-    <view class="choicebarelement"><template is="button-restart" data="{{restart_text}}"></template></view>
-    <view class="choicebarelement"><template is="level-choice" data="{{hard_level, level_default_idx, level_prompt}}"></template></view>
+    <view class="choicebarelement"><template is="button-restart" data="{{restartPrompt}}"></template></view>
+    <view class="choicebarelement"><template is="level-choice" data="{{gameLevel, levelDefault, levelPrompt}}"></template></view>
 </view>
 <view class="grid-body">
-<template is="grid" data="{{test_value}}"></template>
+<template is="grid" data="{{gridValue}}"></template>
 </view>
 </view>
