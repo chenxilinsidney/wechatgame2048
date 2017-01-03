@@ -11,7 +11,7 @@
 </template>
 <!--template for whole grid-->
 <template name="grid">
-    <view class="grid-background"  catchtap="handleMove">
+    <view class="grid-background"  catchtouchmove="handleTouchMove" catchtouchstart="handleTouchStart" catchtouchend="handleTouchEnd" catchtouchcancel="handleTouchCancel">
     <div wx:for="{{gridValue}}" wx:for-item="value">
         <template is="grid-depth1" data="{{value}}"></template>
     </div>

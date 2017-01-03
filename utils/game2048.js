@@ -93,13 +93,13 @@ function playGame(direction) {
 }
 // generate game random value in game array
 function generateGameValue() {
-    console.log("gameArray value: ", gameArray);
-    //get random primitive value
+    // console.log("gameArray value: ", gameArray);
+    // get random primitive value
     var random = Math.random();
     var randomPrimitiveIndex = Math.floor(random * GAME_PRIMITIVE_VALUE.length);
     var randomPrimitiveValue = GAME_PRIMITIVE_VALUE[randomPrimitiveIndex];
-    console.log("randomPrimitiveValue value: ", randomPrimitiveValue);
-    //get random index
+    // console.log("randomPrimitiveValue value: ", randomPrimitiveValue);
+    // get random index
     var zeroArrayLength = gameArray.filter(function(value, index, array) {
         if (value == 0)
             return true;
@@ -112,7 +112,7 @@ function generateGameValue() {
     // change right value with correct index
     random = Math.random();
     var randomZeroIndex = Math.floor(random * zeroArrayLength);
-    console.log("randomZeroIndex value: ", randomZeroIndex);
+    // console.log("randomZeroIndex value: ", randomZeroIndex);
     var zeroCount = 0;
     gameArray.forEach(function(currentValue,index,array){
         if (currentValue == 0) {
@@ -122,7 +122,7 @@ function generateGameValue() {
             }
         }
     });
-    console.log("gameArray value: ", gameArray);
+    // console.log("gameArray value: ", gameArray);
     return true;
 }
 // game status fresh
@@ -217,8 +217,8 @@ function mergeGameArray(direction) {
             });
             var mergearray = mergeGameLine(array, direction);
             newArray.push(...mergearray);
-            console.log("old array list", array);
-            console.log("new array list", mergeGameLine(array, direction));
+            // console.log("old array list", array);
+            // console.log("new array list", mergeGameLine(array, direction));
         }
     } else { //if (direction == "moveTop" || direction == "moveButtom") {
         var tempArray = [];
@@ -228,14 +228,14 @@ function mergeGameArray(direction) {
             });
             var mergearray = mergeGameLine(array, direction);
             tempArray.push(...mergearray);
-            console.log("old array list", array);
+            // console.log("old array list", array);
         }
         for (var count = 0; count < GAME_1DARRAY_LENGTH; count++) {
             var array = tempArray.filter(function(value, index, array) {
                 return index % GAME_1DARRAY_LENGTH == count;
             });
             newArray.push(...array);
-            console.log("new array list", array);
+            // console.log("new array list", array);
         }
     }
     if (newArray.toString() == gameArray.toString()) {
