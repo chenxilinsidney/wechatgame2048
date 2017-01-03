@@ -12,9 +12,7 @@ function printAuthor(){
 const GAME_1DARRAY_LENGTH = 4;
 const GAME_ARRAY_LENGTH = 16;
 // game array value
-const GAME_AVAILABLE_VALUE = [0,2,4,8,16,32,64,128,512,1024,4096,9192];
-// game random value to create number in array
-const GAME_PRIMITIVE_VALUE = [2,4];
+const GAME_AVAILABLE_VALUE = [2,4,8,16,32,64,128,512,1024,4096,9192];
 // game move direction
 const GAME_MOVE_DIRECTION = ["moveLeft", "moveRight", "moveTop", "moveButtom"];
 // game status
@@ -29,6 +27,10 @@ var gameArray = new Array(16);
 var gameScore = 0;
 // game status
 var gameStatus = "start";
+// game mode
+var gameMode = 0;
+// game random value to create number in array
+var gamePrimitiveValue = [2,4];
 
 // game set game array
 function setGameArray(array) {
@@ -38,6 +40,21 @@ function setGameArray(array) {
     console.log("setGameArray gameArray value: ", gameArray);
     return true;
 }
+// game set game mode
+function setGameMode(mode) {
+    gameMode = mode;
+    if (mode < 0 || mode + 1 > GAME_AVAILABLE_VALUE.length) {
+        gamePrimitiveValue = GAME_AVAILABLE_VALUE.slice(1, 3);
+    } else {
+        var primitiveValueLength = mode + 1;
+        gamePrimitiveValue = GAME_AVAILABLE_VALUE.slice(1, primitiveValueLength);
+    }
+    return;
+}
+// game get game mode
+function getGameMode() {
+    return gameMode;
+}
 // game reset game
 function resetGame() {
     // reset array
@@ -45,6 +62,8 @@ function resetGame() {
     // reset value
     gameStatus = "start";
     gameScore = 0;
+    gameMode = 0;
+    gamePrimitiveValue = [2,4];
     // generate a random game value
     generateGameValue();
     console.log("resetGameArray gameArray value: ", gameArray);
@@ -96,8 +115,8 @@ function generateGameValue() {
     // console.log("gameArray value: ", gameArray);
     // get random primitive value
     var random = Math.random();
-    var randomPrimitiveIndex = Math.floor(random * GAME_PRIMITIVE_VALUE.length);
-    var randomPrimitiveValue = GAME_PRIMITIVE_VALUE[randomPrimitiveIndex];
+    var randomPrimitiveIndex = Math.floor(random * gamePrimitiveValue.length);
+    var randomPrimitiveValue = gamePrimitiveValue[randomPrimitiveIndex];
     // console.log("randomPrimitiveValue value: ", randomPrimitiveValue);
     // get random index
     var zeroArrayLength = gameArray.filter(function(value, index, array) {
@@ -143,8 +162,8 @@ function checkArrayLegal(array) {
         array.length != GAME_ARRAY_LENGTH)
         return false;
     var existInvalidValue = array.some(function (element, index, array) {
-        if (!Number.isInteger(element) ||
-            GAME_AVAILABLE_VALUE.indexOf(element) == -1)
+        if (!Number.isInteger(element) || (element != 0 &&
+            GAME_AVAILABLE_VALUE.indexOf(element) == -1))
             return true;
         return false;
     });
@@ -320,5 +339,7 @@ module.exports = {
     playGame: playGame,
     getGameArray: getGameArray,
     getGameStatus: getGameStatus,
-    getGameScore: getGameScore
+    getGameScore: getGameScore,
+    setGameMode: setGameMode,
+    getGameMode: getGameMode,
 }

@@ -16,7 +16,7 @@ Page({
     // 游戏模式：1.输出2,4;2.输出2.4.8;3.输出2.4.8.16;4.输出2.4.8.16.32;5.输出2.4.8.16.32.64;
     gameMode: [1,2,3,4,5],
     // 游戏默认模式 index of gameMode
-    modeMode: [0],
+    modeDefault: [0],
     // 游戏模式提示
     modePrompt:"模式",
     // 游戏运行时间
@@ -42,7 +42,6 @@ Page({
   onReady:function(){
     // 页面渲染完成
     game2048.resetGame();
-    var gameArray = game2048.getGameArray().slice();
     this.setData({
       gridValue:game2048.getGameArray().slice()
     });
@@ -113,6 +112,17 @@ Page({
         'gameTouchInfo.isValid': false
       });
     }
+  },
+  handleGameModeSetting:function(event) {
+    // 设置游戏模式
+    console.log(event);
+    var mode = this.data.gameMode[event.detail.value[0]];
+    // set game mode after reset game
+    game2048.resetGame();
+    this.setData({
+      gridValue:game2048.getGameArray().slice()
+    });
+    game2048.setGameMode(mode);
   },
   handleMoveTop:function(event) {
     // 测试按钮，上滑

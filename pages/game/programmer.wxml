@@ -36,7 +36,7 @@
 <template name="mode-choice">
     <section class="picker-group">
         <text class="picker-prompt">{{modePrompt}}</text>
-        <picker-view class="picker-content" value="{{modeDefault}}">
+        <picker-view class="picker-content" value="{{modeDefault}}" catchchange="handleGameModeSetting">
             <picker-view-column>
                     <view wx:for="{{gameMode}}" wx:for-item="mode">{{mode}}</view>
             </picker-view-column>
