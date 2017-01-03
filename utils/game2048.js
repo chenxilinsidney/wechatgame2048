@@ -31,6 +31,8 @@ var gameStatus = "start";
 var gameMode = 0;
 // game random value to create number in array
 var gamePrimitiveValue = [2,4];
+// game Level
+var gameLevel = 0;
 
 // game set game array
 function setGameArray(array) {
@@ -54,6 +56,15 @@ function setGameMode(mode) {
 // game get game mode
 function getGameMode() {
     return gameMode;
+}
+// game set game level
+function setGameLevel(level) {
+    gameLevel = level;
+    return;
+}
+// game get game level
+function getGameLevel() {
+    return gameLevel;
 }
 // game reset game
 function resetGame() {
@@ -342,4 +353,6 @@ module.exports = {
     getGameScore: getGameScore,
     setGameMode: setGameMode,
     getGameMode: getGameMode,
+    setGameLevel: setGameLevel,
+    getGameLevel: getGameLevel
 }

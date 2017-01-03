@@ -25,7 +25,7 @@
 <template name="level-choice">
     <section class="picker-group">
         <text class="picker-prompt">{{levelPrompt}}</text>
-        <picker-view class="picker-content" value="{{levelDefault}}">
+        <picker-view class="picker-content" value="{{levelDefault}}" catchchange="handleGameLevelSetting">
             <picker-view-column>
                     <view wx:for="{{gameLevel}}" wx:for-item="level">{{level + "级"}}</view>
             </picker-view-column>

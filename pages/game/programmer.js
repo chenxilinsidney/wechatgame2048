@@ -124,6 +124,12 @@ Page({
     });
     game2048.setGameMode(mode);
   },
+  handleGameLevelSetting:function(event) {
+    // 设置游戏难度
+    console.log(event);
+    var level = this.data.gameMode[event.detail.value[0]];
+    game2048.setGameLevel(level);
+  },
   handleMoveTop:function(event) {
     // 测试按钮，上滑
     game2048.playGame("moveTop");
