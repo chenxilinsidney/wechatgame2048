@@ -1,0 +1,18 @@
+INSERT INTO user_info(name, photo, gender, country, province, city, language)
+    VALUES('chenxilin', 'http://www.baidu.com', 1, '中国', '广东省', '深圳', 'zh_cn'),
+    ('wuyuemao', 'http://www.tp.com', 1, '中国', '广东省', '深圳', 'zh_cn'),
+    ('ouyangliping', 'http://www.huawei.com', 1, '中国', '广东省', '深圳', 'zh_cn'),
+    ('qiuliangbin', 'http://www.hanwuji.com', 1, '中国', '广东省', '深圳', 'zh_cn'),
+    ('yangyi', 'http://www.pcb.com', 1, '中国', '江苏省', '苏州', 'zh_cn'),
+    ('huangzhihua', 'http://www.plane.com', 1, '中国', '广东省', '珠海', 'zh_cn'),
+    ('chenyiqing', 'http://www.student.com', 2, '法国', '巴黎', 'emmc', 'france');
+
+/*SET FOREIGN_KEY_CHECKS=0;*/
+INSERT INTO game_info(name_id, game_mode, game_level, game_score, game_status,
+        game_time, game_string)
+    VALUES(1, 1, 1, 2048, "end", "00:09:30",
+            "[2048,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"),
+    (1, 2, 2, 1024, "end", "00:09:30",
+            "[1024,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"),
+    (2, 1, 1, 2048, "end", "00:09:30",
+            "[2048,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0]");
