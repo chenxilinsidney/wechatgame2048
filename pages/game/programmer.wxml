@@ -64,3 +64,25 @@
 <template is="grid" data="{{gridValue}}"></template>
 </view>
 </view>
+<view id="top-charts">
+<view id="charts-title">
+<text>{{"排行榜"}}</text>
+</view>
+<view id="charts-head">
+<text class="charts-head-item">{{"用户"}}</text>
+<text class="charts-head-item">{{"分数"}}</text>
+<text class="charts-head-item">{{"难度"}}</text>
+<text class="charts-head-item">{{"模式"}}</text>
+<text class="charts-head-item">{{"用时"}}</text>
+</view>
+<scroll-view id="charts-body-scroll" scroll-x="false" scroll-y="true" >
+<view id="charts-body-view" wx:for="{{chartsUsers}}" wx:for-item="user">
+<image src="{{user.avatar}}" mode="aspectFit"></image>
+<text class="charts-body-item">{{user.name}}</text>
+<text class="charts-body-item">{{user.score}}</text>
+<text class="charts-body-item">{{user.level}}</text>
+<text class="charts-body-item">{{user.mode}}</text>
+<text class="charts-body-item">{{user.time}}</text>
+</view>
+</scroll-view>
+</view>

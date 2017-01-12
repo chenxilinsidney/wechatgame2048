@@ -1,6 +1,8 @@
 // pages/game/programmer.js
 var game2048 = require('../../utils/game2048.js');
+var gameServer = require('../../utils/gameServer.js');
 var util = require('../../utils/util.js');
+var app = getApp()
 Page({
   data:{
     // 游戏数组值
@@ -34,7 +36,24 @@ Page({
         isValid: false
     },
     // 游戏触摸控制阈值
-    gameDistanceThreshold:10
+    gameDistanceThreshold:10,
+    // 排行榜
+    chartsUsers: [
+      {
+        avatar:"http://wx.qlogo.cn/mmopen/vi_32/l8W3SEfertzlK6csQd23scfZG30hXDVP0mT2ODFqoPlkmmeic1ZXoiczVicppy68kPiajjEIbA5Daf7d6erlRdib5uQ/0",
+        name:"chenxi****",
+        score:"2048",
+        level:"3级",
+        mode:"3",
+        time:"05:34"
+      }, {
+        name:"**********",
+        score:"4096",
+        level:"5级",
+        mode:"5",
+        time:"15:03"
+      }
+    ]
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -45,6 +64,8 @@ Page({
     this.setData({
       gridValue:game2048.getGameArray().slice()
     });
+    // 用户数据获取
+    this.inspectUserServer();
   },
   onShow:function(){
     // 页面显示
@@ -52,7 +73,9 @@ Page({
     // test
     this.setData({
       gameTime:util.formatDayTime(new Date())
-    });
+    })
+    // 排行榜
+    this.getRank();
   },
   onHide:function(){
     // 页面隐藏
@@ -179,5 +202,74 @@ Page({
         else
             return "moveButtom";
     }
+  },
+  inspectUserServer:function() {
+    var user;
+    app.getUserInfo(function(userInfo){
+      user = userInfo;
+    });
+    console.log(user);
+    gameServer.inspectUser(user.nickName, function(res) {
+      console.log(res);
+      if (res.errno != 0) {
+        newuser = {
+          name: user.nickName,
+          photo: user.avatarUrl,
+          gender: user.gender,
+          country: user.country,
+          province: user.province,
+          city: user.city,
+          country: user.country
+        };
+        gameServer.updateUser(newuser,function(res) {
+          console.log(res);
+        });
+      }
+    });
+  },
+  updateUserServer:function() {
+    var user;
+    app.getUserInfo(function(userInfo){
+      user = userInfo;
+    });
+    console.log(user);
+    var newuser = {
+      name: user.nickName,
+      photo: user.avatarUrl,
+      gender: user.gender,
+      country: user.country,
+      province: user.province,
+      city: user.city,
+      country: user.country
+    };
+    gameServer.updateUser(newuser,function(res) {
+      console.log(res);
+    });
+  },
+  getRank:function() {
+    var lchartsUsers = [];
+    var that = this;
+    gameServer.getRank(function(res) {
+      if (res.errno != 0)
+        return;
+        var rank = res.rank;
+        rank.forEach(function(currentValue,index,array){
+          var data = {
+            avatar:"http://wx.qlogo.cn/mmopen/vi_32/l8W3SEfertzlK6csQd23scfZG30hXDVP0mT2ODFqoPlkmmeic1ZXoiczVicppy68kPiajjEIbA5Daf7d6erlRdib5uQ/0",
+            name: currentValue.name_id,
+            mode: currentValue.game_mode,
+            level: currentValue.game_level,
+            score: currentValue.game_score,
+            time: currentValue.game_time
+          };
+          console.log(data);
+          lchartsUsers.push(data);
+        });
+        console.log(lchartsUsers);
+        that.setData({
+          chartsUsers:lchartsUsers
+        });
+    });
+    console.log(lchartsUsers);
   }
 })

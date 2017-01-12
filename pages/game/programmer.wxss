@@ -133,3 +133,99 @@
 .progress {
     height: 100%;
 }
+
+#top-charts {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* border: 1rpx solid #000000; */
+}
+#charts-title {
+    /* border: 1rpx solid #0000FF; */
+    font: bold 50rpx arial;
+    margin: 5rpx;
+    text-align: center;
+}
+#charts-head {
+    /* position: absolute; */
+    /* border: 1rpx solid #00FF00; */
+    display: flex;
+    width: 100%;
+    text-align: center;
+    flex-wrap:nowrap;
+}
+#charts-head text:nth-child(1){
+    flex:1 1 auto;
+    min-width: 250rpx;
+}
+#charts-head text:nth-child(2){
+    flex:1 1 auto;
+    max-width:100rpx;
+    min-width: 100rpx;
+}
+#charts-head text:nth-child(3){
+    flex:1 1 auto;
+    max-width:60rpx;
+    min-width: 60rpx;
+}
+#charts-head text:nth-child(4){
+    flex:1 1 auto;
+    max-width:60rpx;
+    min-width: 60rpx;
+}
+#charts-head text:nth-child(5){
+    flex:1 1 auto;
+    max-width:100rpx;
+    min-width: 100rpx;
+}
+.charts-head-item {
+    /* border: 1rpx solid #000000; */
+    font: bold 30rpx arial;
+    margin: 5rpx;
+    padding: 10rpx;
+}
+#charts-body-view {
+    /* position: absolute; */
+    /* border: 1rpx solid #FF0000; */
+    display: flex;
+    width: 100%;
+    text-align: center;
+    flex-wrap:nowrap;
+}
+#charts-body-view image:nth-child(1){
+    width: 50rpx;
+    height: 50rpx;
+    /* border: 1rpx solid #00FF00; */
+    border-radius: 50%;
+    margin: 5rpx;
+}
+#charts-body-view text:nth-child(2){
+    flex:1 1 auto;
+    min-width: 200rpx;
+}
+#charts-body-view text:nth-child(3){
+    flex:1 1 auto;
+    max-width:100rpx;
+    min-width: 100rpx;
+}
+#charts-body-view text:nth-child(4){
+    flex:1 1 auto;
+    max-width:60rpx;
+    min-width: 60rpx;
+}
+#charts-body-view text:nth-child(5){
+    flex:1 1 auto;
+    max-width:60rpx;
+    min-width: 60rpx;
+}
+#charts-body-view text:nth-child(6){
+    flex:1 1 auto;
+    max-width:100rpx;
+    min-width: 100rpx;
+}
+.charts-body-item {
+    /* border: 1rpx solid #000000; */
+    font: bold 30rpx arial;
+    margin: 5rpx;
+    padding: 10rpx;
+}

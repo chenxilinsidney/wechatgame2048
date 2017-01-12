@@ -5,5 +5,5 @@
     "backgroundColor": "#FFDD99",
     "backgroundTextStyle": "dark",
     "enablePullDownRefresh": false,
-    "disableScroll": true
+    "disableScroll": false
 }
