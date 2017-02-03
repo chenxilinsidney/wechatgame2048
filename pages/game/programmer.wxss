@@ -1,15 +1,13 @@
 /* pages/game/programmer.wxss */
 .background {
-    height: 100%;
-    width: 100%;
     background-color: #FFDD99;
-    border:1px solid;
 }
 .grid-body {
-    /*bug*/
+    height: 520rpx;
+    padding-top: 50rpx;
+    padding-left: 18%;
+    padding-bottom: 25rpx;
     text-align: center;
-    display: relative;
-    border:1px solid;
 }
 .grid-background {
     height: 450rpx;
@@ -17,7 +15,7 @@
     background-color: #FFDD99;
     border: 10rpx solid lightgoldenrodyellow;
     border-radius: 25rpx;
-    margin: 5rpx, auto;
+    margin: 0, auto;
     padding: 5rpx;
     display:flex;
     flex-wrap:wrap;
@@ -56,53 +54,30 @@
     font: bold 30rpx arial;
 }
 .button-restart {
-    font: bold 30rpx arial;
+    font: bold 60rpx arial;
     background-color: #FFDD99;
-    border: 10rpx solid #EECC88;
     border-radius: 10rpx;
+    text-align: center;
+    line-height: 100%;
+    padding: 10rpx;
 }
 .button-restart-hover {
     background-color: #CCBB77;
 }
-.button-group {
-    height: 100rpx;
-    width: 600rpx;
-    border:1px solid;
-    text-align:center;
-    display: table;
-    table-layout: fixed;
-    position: relative;
-}
-.button-single {
-    font: bold 30rpx arial;
-    background-color: #FFDD99;
-    border: 10rpx solid #EECC88;
-    border-radius: 20rpx;
-    display: table-cell;
-    empty-cells: hide;
-    text-align: center;
-    line-height: 100rpx;
-    margin: 0,auto;
-}
-.button-single-hover {
-    background-color: #CCBB77;
-}
 .choicebar {
-    height: 80rpx;
+    height: 100rpx;
     width: 100%;
-    border:1px solid;
     text-align:center;
     display: table;
     table-layout: auto;
     position: relative;
-    margin: 10rpx;
 }
 .choicebarelement {
     display: table-cell;
     empty-cells: hide;
     text-align: center;
     line-height: 100rpx;
-    margin: 0,auto;
+    margin: 0, auto;
 }
 .picker-group {
     height: 100%;
@@ -114,41 +89,29 @@
     align-items:center;
     justify-content:center;
 }
-.picker-prompt {
+.time-data {
+    font: bold 40rpx arial;
     text-align: center;
-    height: 100rpx;
-    width: 100rpx;
-    display: -webkit-box;
-    font: bold 30rpx arial;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
-    flex-direction: column;
+    padding: 20rpx;
+
 }
-.picker-content {
-    height: 100rpx;
-    width: 100rpx;
-    line-height: 75rpx;
-    flex-direction: column;
-}
-.progress {
+.time-progress {
     height: 100%;
+    padding: 10rpx;
 }
 
 #top-charts {
     position: relative;
     width: 100%;
     height: 100%;
-    /* border: 1rpx solid #000000; */
 }
 #charts-title {
-    /* border: 1rpx solid #0000FF; */
     font: bold 50rpx arial;
     margin: 5rpx;
     text-align: center;
 }
 #charts-head {
     /* position: absolute; */
-    /* border: 1rpx solid #00FF00; */
     display: flex;
     width: 100%;
     text-align: center;
@@ -179,14 +142,12 @@
     min-width: 100rpx;
 }
 .charts-head-item {
-    /* border: 1rpx solid #000000; */
     font: bold 30rpx arial;
     margin: 5rpx;
     padding: 10rpx;
 }
 #charts-body-view {
     /* position: absolute; */
-    /* border: 1rpx solid #FF0000; */
     display: flex;
     width: 100%;
     text-align: center;
@@ -197,11 +158,11 @@
     height: 50rpx;
     /* border: 1rpx solid #00FF00; */
     border-radius: 50%;
-    margin: 5rpx;
 }
 #charts-body-view text:nth-child(2){
     flex:1 1 auto;
     min-width: 200rpx;
+    max-width: 200rpx;
 }
 #charts-body-view text:nth-child(3){
     flex:1 1 auto;
@@ -220,12 +181,10 @@
 }
 #charts-body-view text:nth-child(6){
     flex:1 1 auto;
-    max-width:100rpx;
     min-width: 100rpx;
 }
 .charts-body-item {
-    /* border: 1rpx solid #000000; */
     font: bold 30rpx arial;
-    margin: 5rpx;
+    margin: 0rpx;
     padding: 10rpx;
 }

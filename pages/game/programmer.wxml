@@ -12,77 +12,59 @@
 <!--template for whole grid-->
 <template name="grid">
     <view class="grid-background"  catchtouchmove="handleTouchMove" catchtouchstart="handleTouchStart" catchtouchend="handleTouchEnd" catchtouchcancel="handleTouchCancel">
-    <div wx:for="{{gridValue}}" wx:for-item="value">
+    <view wx:for="{{gridValue}}" wx:for-item="value">
         <template is="grid-depth1" data="{{value}}"></template>
-    </div>
     </view>
-</template>
-<!--template for restart button-->
-<template name="button-restart">
-    <button class="button-restart" hover-class="button-restart-hover" catchtap="handleRestart">{{restartPrompt}}</button>
-</template>
-<!--template for hard level choice button-->
-<template name="level-choice">
-    <section class="picker-group">
-        <text class="picker-prompt">{{levelPrompt}}</text>
-        <picker-view class="picker-content" value="{{levelDefault}}" catchchange="handleGameLevelSetting">
-            <picker-view-column>
-                    <view wx:for="{{gameLevel}}" wx:for-item="level">{{level + "级"}}</view>
-            </picker-view-column>
-        </picker-view>
-    </section>
-</template>
-<!--template for mode choice button-->
-<template name="mode-choice">
-    <section class="picker-group">
-        <text class="picker-prompt">{{modePrompt}}</text>
-        <picker-view class="picker-content" value="{{modeDefault}}" catchchange="handleGameModeSetting">
-            <picker-view-column>
-                    <view wx:for="{{gameMode}}" wx:for-item="mode">{{mode}}</view>
-            </picker-view-column>
-        </picker-view>
-    </section>
+    </view>
 </template>
 <!--view-->
 <view class="background">
-<view class="button-group">
-<button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveTop">{{"Up"}}</button>
-<button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveButtom">{{"Down"}}</button>
-<button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveLeft">{{"Left"}}</button>
-<button class="button-single" hover-class="button-single-hover"  catchtap="handleMoveRight">{{"Right"}}</button>
-</view>
-<view class="choicebar">
-    <view class="choicebarelement"><template is="button-restart" data="{{restartPrompt}}"></template></view>
-    <view class="choicebarelement"><template is="level-choice" data="{{gameLevel, levelDefault, levelPrompt}}"></template></view>
-    <view class="choicebarelement"><template is="mode-choice" data="{{gameMode, modeDefault, modePrompt}}"></template></view>
-</view>
-<view class="choicebar">
-    <view class="choicebarelement">{{gameTime}}</view>
-</view>
-<view class="progress"><progress percent="60" stroke-width="12" color="#FF0000"/></view>
-<view class="grid-body">
-<template is="grid" data="{{gridValue}}"></template>
-</view>
-</view>
-<view id="top-charts">
-<view id="charts-title">
-<text>{{"排行榜"}}</text>
-</view>
-<view id="charts-head">
-<text class="charts-head-item">{{"用户"}}</text>
-<text class="charts-head-item">{{"分数"}}</text>
-<text class="charts-head-item">{{"难度"}}</text>
-<text class="charts-head-item">{{"模式"}}</text>
-<text class="charts-head-item">{{"用时"}}</text>
-</view>
-<scroll-view id="charts-body-scroll" scroll-x="false" scroll-y="true" >
-<view id="charts-body-view" wx:for="{{chartsUsers}}" wx:for-item="user">
-<image src="{{user.avatar}}" mode="aspectFit"></image>
-<text class="charts-body-item">{{user.name}}</text>
-<text class="charts-body-item">{{user.score}}</text>
-<text class="charts-body-item">{{user.level}}</text>
-<text class="charts-body-item">{{user.mode}}</text>
-<text class="charts-body-item">{{user.time}}</text>
-</view>
-</scroll-view>
+    <view class="choicebar">
+        <view class="choicebarelement">
+            <button class="button-restart" hover-class="button-restart-hover" catchtap="handleRestart">{{restartPrompt}}</button>
+        </view>
+        <view class="choicebarelement">
+            <view class="picker-group">
+                <picker mode="selector" bindchange="handleGameLevelSetting" value="{{level-1}}" range="{{gameLevel}}">
+                    <view class="picker">{{levelPrompt}} {{gameLevel[level-1]+"级"}}</view>
+                </picker>
+            </view>
+        </view>
+        <view class="choicebarelement">
+            <view class="picker-group">
+                <picker mode="selector" bindchange="handleGameModeSetting" value="{{mode-1}}" range="{{gameMode}}">
+                    <view class="picker">{{modePrompt}} {{gameMode[mode-1]+"M"}}</view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="timebar">
+        <view class="time-data">{{gameTime}}</view>
+        <view class="time-progress"><progress percent="60" stroke-width="12" color="#FF0000"/></view>
+    </view>
+    <view class="grid-body">
+        <template is="grid" data="{{gridValue}}"></template>
+    </view>
+    <view id="top-charts">
+        <view id="charts-title">
+            <text>{{"排行榜"}}</text>
+        </view>
+        <view id="charts-head">
+        <text class="charts-head-item">{{"用户"}}</text>
+        <text class="charts-head-item">{{"分数"}}</text>
+        <text class="charts-head-item">{{"难度"}}</text>
+        <text class="charts-head-item">{{"模式"}}</text>
+        <text class="charts-head-item">{{"用时"}}</text>
+        </view>
+        <scroll-view id="charts-body-scroll" scroll-x="false" scroll-y="true" >
+            <view id="charts-body-view" wx:for="{{chartsUsers}}" wx:for-item="user">
+                <image src="{{user.avatar}}" mode="aspectFit"></image>
+                <text class="charts-body-item">{{user.name}}</text>
+                <text class="charts-body-item">{{user.score}}</text>
+                <text class="charts-body-item">{{user.level}}</text>
+                <text class="charts-body-item">{{user.mode}}</text>
+                <text class="charts-body-item">{{user.time}}</text>
+            </view>
+        </scroll-view>
+    </view>
 </view>

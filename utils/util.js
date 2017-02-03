@@ -11,12 +11,13 @@ function formatTime(date) {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
-function formatDayTime(date) {
-  var hour = date.getHours()
-  var minute = date.getMinutes()
-  var second = date.getSeconds()
+function formatSecondsTime(seconds) {
+  var second = seconds % 60;
+  var minute = Math.floor(seconds / 60) % 60;
+  var hour = Math.floor(minute / 60) % 60;
   return [hour, minute, second].map(formatNumber).join(':')
 }
+
 
 function formatNumber(n) {
   n = n.toString()
@@ -25,5 +26,5 @@ function formatNumber(n) {
 
 module.exports = {
   formatTime: formatTime,
-  formatDayTime: formatDayTime
+  formatSecondsTime: formatSecondsTime
 }

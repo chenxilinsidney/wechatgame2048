@@ -11,18 +11,22 @@ Page({
     restartPrompt:"重新开始",
     // 游戏难度：1.时间160ms;2.时间80ms;3.时间40ms;4.时间20ms;5.时间10ms;
     gameLevel:[1,2,3,4,5],
-    // 游戏默认难度 index of gameLevel
-    levelDefault: [2],
+    // 游戏难度初始值 index of gameLevel
+    level: 3,
     // 游戏难度提示
     levelPrompt:"难度",
     // 游戏模式：1.输出2,4;2.输出2.4.8;3.输出2.4.8.16;4.输出2.4.8.16.32;5.输出2.4.8.16.32.64;
     gameMode: [1,2,3,4,5],
-    // 游戏默认模式 index of gameMode
-    modeDefault: [0],
+    // 游戏模式初始值 index of gameMode
+    mode: 1,
     // 游戏模式提示
     modePrompt:"模式",
     // 游戏运行时间
     gameTime:"00:00:00",
+    // 游戏运行开始时间
+    gameStartDate:0,
+    // 游戏运行结束时间
+    gameEndDate:0,
     // 游戏触摸控制
     gameTouchInfo: {
         pointOrigin: {
@@ -66,14 +70,25 @@ Page({
     });
     // 用户数据获取
     this.inspectUserServer();
+    // time
+    console.log("gameStartDate:", this.data.gameStartDate);
+    var that = this;
+    setInterval(function() {
+      var _gameEndDate = Date.now();
+      var playTime = Math.floor((_gameEndDate - that.data.gameStartDate) / 1000);
+      that.setData({
+        gameEndDate: _gameEndDate,
+        gameTime: util.formatSecondsTime(playTime)
+      });
+      },1000);
   },
   onShow:function(){
     // 页面显示
     game2048.printAuthor();
     // test
     this.setData({
-      gameTime:util.formatDayTime(new Date())
-    })
+      gameStartDate:new Date().getTime()
+    });
     // 排行榜
     this.getRank();
   },
@@ -87,7 +102,9 @@ Page({
     // 游戏重新开始
     game2048.resetGame();
     this.setData({
-      gridValue:game2048.getGameArray().slice()
+      gridValue:game2048.getGameArray().slice(),
+      gameStartDate:new Date().getTime(),
+      gameTime:"00:00:00"
     });
   },
   handleTouchMove:function(event){
@@ -139,19 +156,23 @@ Page({
   handleGameModeSetting:function(event) {
     // 设置游戏模式
     console.log(event);
-    var mode = this.data.gameMode[event.detail.value[0]];
+    var _mode = this.data.gameMode[event.detail.value[0]];
     // set game mode after reset game
     game2048.resetGame();
     this.setData({
+      mode:_mode,
       gridValue:game2048.getGameArray().slice()
     });
-    game2048.setGameMode(mode);
+    game2048.setGameMode(_mode);
   },
   handleGameLevelSetting:function(event) {
     // 设置游戏难度
     console.log(event);
-    var level = this.data.gameMode[event.detail.value[0]];
-    game2048.setGameLevel(level);
+    var newLevel = this.data.gameMode[event.detail.value[0]];
+    game2048.setGameLevel(newLevel);
+    this.setData({
+      level:newLevel
+    });
   },
   handleMoveTop:function(event) {
     // 测试按钮，上滑
